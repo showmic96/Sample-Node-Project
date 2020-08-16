@@ -1,0 +1,23 @@
+{
+  "name": "sample-node-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/showmic96/Sample-Node-Project.git"
+  },
+  "author": "showmic96",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/showmic96/Sample-Node-Project/issues"
+  },
+  "homepage": "https://github.com/showmic96/Sample-Node-Project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "require": "^2.4.20"
+  }
+}
