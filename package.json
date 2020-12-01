@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/showmic96/Sample-Node-Project#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "config": "^3.3.3",
     "express": "^4.17.1",
+    "lodash": "^4.17.20",
     "pg": "^8.5.1",
     "require": "^2.4.20",
     "sequelize": "^6.3.5"

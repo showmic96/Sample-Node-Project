@@ -10,4 +10,4 @@ const userModel = require('../models/user');
 
 global.db = {};
 global.db.user = sequelize.define('user', userModel);
-global.db.user.sync({force: true});
+//global.db.user.sync({force: true});
