@@ -13,14 +13,15 @@ module.exports = (app) => {
 
     app.post('/addUser', (req, res) => {
         const addUserData = req.body;
-
         return userService.addUser(addUserData)
             .then((response) => {
+                console.log(response);
                 res.status(200)
-                    .send(response);
+                    .send(addUserData);
             })
             .catch((error) => {
-                res.status(error.status || 500)
+                console.log(error);
+                return res.status(error.status || 500)
                     .send(_.omit(error, 'status'));
             })
     });
