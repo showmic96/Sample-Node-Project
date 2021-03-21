@@ -2,8 +2,8 @@ const { Sequelize } = require('sequelize');
 const dbConfig = require('config').db;
 
 const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
-    host: 'localhost',
-    dialect: 'postgres',
+    host: dbConfig.host,
+    dialect: 'mysql',
 });
 
 const userModel = require('../models/user');

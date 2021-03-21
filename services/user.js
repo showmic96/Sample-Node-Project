@@ -3,12 +3,13 @@ const bcrypt = require("bcrypt");
 const { user } = global.db;
 
 module.exports = {
-  getUserList() {
+  getUserList: () => {
     return user.findAll();
   },
 
-  addUser(userData) {
+  addUser: (userData) => {
     const { username } = userData;
+
     return user
       .findOne({ where: { username } })
       .then((response) => {
@@ -30,4 +31,35 @@ module.exports = {
         });
       });
   },
+
+  getUser: async ({ username, password }) => {
+    return user.findOne({
+      where: {
+        username
+      }
+    })
+      .then(async (userData) => {
+        if (!userData) {
+          const error = {
+            status: 404,
+            message: 'User not found!'
+          };
+
+          return Promise.reject(error);
+        }
+
+        const comparedValue = await bcrypt.compare(password, userData.password);
+
+        if (!comparedValue) {
+          const error = {
+            status: 400,
+            message: 'Invalid username or password'
+          };
+
+          return Promise.reject(error);
+        };
+
+        return userData.get({ plain: true });
+      });
+  }
 };
